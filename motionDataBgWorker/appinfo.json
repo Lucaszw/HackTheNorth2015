@@ -1,0 +1,18 @@
+{
+  "uuid": "1d46b6dd-5735-4cba-abaa-2c546e02a1ba",
+  "shortName": "motionDataBgWorker",
+  "longName": "motionDataBgWorker",
+  "companyName": "MakeAwesomeHappen",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
