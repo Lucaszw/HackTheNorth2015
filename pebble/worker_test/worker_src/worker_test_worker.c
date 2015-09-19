@@ -9,15 +9,11 @@
 
 #define ACCEL_DATA 0
 
+DataLoggingSessionRef accel_data_logger;
+
 static void data_handler(AccelData *data, uint32_t num_samples) {
   
-  static uint8_t s_buffer[128];
-
-  // Compose string of all data
-  // snprintf(s_buffer, sizeof(s_buffer), 
-  //   "N X,Y,Z\n0 %d,%d,%d\n1 %d,%d,%d\n2 %d,%d,%d", 
-  //   data[0].x, data[0].y, data[0].z, 
-  // );
+  data_logging_log(accel_data_logger, data, num_samples);
 
   // Construct a data packet
   AppWorkerMessage xyz_data = {
@@ -25,18 +21,6 @@ static void data_handler(AccelData *data, uint32_t num_samples) {
     .data1 = data[0].y, 
     .data2 = data[0].z
   };
-
-  // AppWorkerMessage y_data = {
-  //   .data0 = data[0].y,
-  //   .data1 = data[1].y,
-  //   .data2 = data[2].y,
-  // };
-
-  // AppWorkerMessage z_data = {
-  //   .data0 = data[0].z,
-  //   .data1 = data[1].z,
-  //   .data2 = data[2].z,
-  // };
 
   // Send the data to the foreground app
   app_worker_send_message(ACCEL_DATA, &xyz_data);
@@ -48,10 +32,12 @@ static void worker_init() {
     accel_data_service_subscribe(num_samples, data_handler);
     // Choose update rate
     accel_service_set_sampling_rate(ACCEL_SAMPLING_10HZ);
+    accel_data_logger = data_logging_create(1, DATA_LOGGING_BYTE_ARRAY, sizeof(AccelData), true); 
 
 }
 
 static void worker_deinit() {
+    data_logging_finish(accel_data_logger);
     accel_data_service_unsubscribe();
 }
 
