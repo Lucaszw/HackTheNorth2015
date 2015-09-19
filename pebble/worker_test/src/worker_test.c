@@ -6,10 +6,13 @@
 
 #include <pebble.h>
 
- #define ACCEL_DATA 0
+#define ACCEL_DATA 0
 
 static Window *s_main_window;
 static TextLayer *s_output_layer, *s_ticks_layer, *s_x_layer, *s_y_layer, *s_z_layer;
+
+static GBitmap *s_bitmap;
+static BitmapLayer *s_bitmap_layer;
 
 static void worker_message_handler(uint16_t type, AppWorkerMessage *data) {
   // Updated the UI with info from worker
@@ -69,7 +72,12 @@ static void click_config_provider(void *context) {
 
 static void make_layer(Layer* win_layer, TextLayer* layer, char* str){
 
-  text_layer_set_background_color(layer, GColorClear);
+  #ifdef PBL_COLOR
+    text_layer_set_background_color(layer, GColorMintGreen);
+  #else
+    text_layer_set_background_color(layer, GColorClear);
+  #endif
+  
   text_layer_set_text_alignment(layer, GTextAlignmentCenter);
   text_layer_set_text(layer, str);
   layer_add_child(win_layer, text_layer_get_layer(layer));
@@ -83,9 +91,18 @@ static void main_window_load(Window *window) {
 
   // Create UI
   s_output_layer = text_layer_create(GRect(0, 0, window_bounds.size.w, window_bounds.size.h));
-  text_layer_set_text(s_output_layer, "Use SELECT to start/stop the background worker.");
+  text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
+  // text_layer_set_text(s_output_layer, "\U0001F638");
   text_layer_set_text_alignment(s_output_layer, GTextAlignmentCenter);
-  layer_add_child(window_layer, text_layer_get_layer(s_output_layer));
+
+
+  s_bitmap = gbitmap_create_with_resource(RESOURCE_ID_FBLOGO);
+
+  s_bitmap_layer = bitmap_layer_create(GRect(0, -55, window_bounds.size.w, window_bounds.size.h));
+  bitmap_layer_set_bitmap(s_bitmap_layer, s_bitmap);
+
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_bitmap_layer));
+
 
   s_ticks_layer = text_layer_create(GRect(30, 50, window_bounds.size.w, 30));
   text_layer_set_text(s_ticks_layer, "No data yet.");
