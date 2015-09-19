@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  pebble
+//  gesture
 //
 //  Created by Maksym Pikhteryev on 2015-09-19.
-//  Copyright (c) 2015 Maksym Pikhteryev. All rights reserved.
+//  Copyright (c) 2015 seapig. All rights reserved.
 //
 
 import UIKit
