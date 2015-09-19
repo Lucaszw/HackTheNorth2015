@@ -10,14 +10,56 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PBPebbleCentralDelegate {
 
-    var window: UIWindow?
-
-
+    var window: UIWindow?;
+    
+    var watch: PBWatch? {
+        didSet {
+            if let watch = watch {
+                watch.appMessagesLaunch({ (_, error) in
+                    if error != nil {
+                        println("App launched!")
+                        ConnectionAPI.status = "app launched?"
+                    } else {
+                        println("error")
+                    }
+                }
+                )
+            }
+        }
+    }
+    
+    func recieveMessage(){
+        
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        
+        
+        let pebble = PBPebbleCentral.defaultCentral()
+        pebble.delegate = self
+        
+        var uuidBytes = Array<UInt8>(count:16, repeatedValue:0)
+        let uuid = NSUUID(UUIDString: "dde5b4f3-de18-42b0-8d10-6a635a31b7bd")
+        uuid?.getUUIDBytes(&uuidBytes)
+        pebble.appUUID = NSData(bytes: &uuidBytes, length: uuidBytes.count)
+        
+        watch = pebble.lastConnectedWatch()
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(
+                application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -36,6 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -107,5 +151,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension AppDelegate: PBPebbleCentralDelegate {
+    func pebbleCentral(central: PBPebbleCentral!, watchDidConnect watch: PBWatch!, isNew: Bool) {
+        println("watch did connect?")
+        if self.watch != watch {
+            self.watch = watch
+        }
+    }
 }
 

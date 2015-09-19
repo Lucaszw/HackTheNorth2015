@@ -3,6 +3,7 @@
 
 target 'gesture' do
         pod 'PebbleKit'
+	pod 'CorePlot'
 end
 
 target 'gestureTests' do
