@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CC0-Ob-lnq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="gesture" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,103 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="connection status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WY-9j-xap">
+                                <rect key="frame" x="230" y="289" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nothing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-HG-u1x">
+                                <rect key="frame" x="272" y="318" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbw-hh-usR" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="150" y="347" width="300" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ofm-SA-IPI"/>
+                                    <constraint firstAttribute="height" constant="50" id="xjH-Vt-mhV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="8WY-9j-xap" secondAttribute="centerY" constant="0.5" id="Aww-Uj-xG4"/>
+                            <constraint firstItem="UQg-HG-u1x" firstAttribute="top" secondItem="8WY-9j-xap" secondAttribute="bottom" constant="8" id="CAG-pW-wV0"/>
+                            <constraint firstItem="Wbw-hh-usR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ibo-g9-uRv"/>
+                            <constraint firstAttribute="centerX" secondItem="UQg-HG-u1x" secondAttribute="centerX" constant="-1" id="Mxt-zN-C4z"/>
+                            <constraint firstItem="Wbw-hh-usR" firstAttribute="top" secondItem="UQg-HG-u1x" secondAttribute="bottom" constant="8" id="QZ4-a5-v5J"/>
+                            <constraint firstAttribute="centerX" secondItem="8WY-9j-xap" secondAttribute="centerX" constant="-0.5" id="acS-7O-Fva"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wbw-hh-usR" secondAttribute="bottom" constant="202" id="fbr-oa-sVQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fbr-oa-sVQ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="caY-dw-CIO"/>
+                    <connections>
+                        <outlet property="fbLoginView" destination="Wbw-hh-usR" id="tR4-2Y-ElB"/>
+                        <outlet property="statusLabel" destination="UQg-HG-u1x" id="b5v-Ug-VIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1308" y="348"/>
+        </scene>
+        <!--data graph-->
+        <scene sceneID="jbW-Ol-Cmz">
+            <objects>
+                <viewController id="FjA-H6-x06" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gsd-dU-LPc"/>
+                        <viewControllerLayoutGuide type="bottom" id="RgM-6p-2Eh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fdP-vj-U8O">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-T6-06p" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="16" y="20" width="568" height="523"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RgM-6p-2Eh" firstAttribute="top" secondItem="4uD-T6-06p" secondAttribute="bottom" constant="8" id="Jel-k6-yjs"/>
+                            <constraint firstItem="4uD-T6-06p" firstAttribute="leading" secondItem="fdP-vj-U8O" secondAttribute="leadingMargin" id="KVk-vh-PMh"/>
+                            <constraint firstItem="4uD-T6-06p" firstAttribute="trailing" secondItem="fdP-vj-U8O" secondAttribute="trailingMargin" id="vuZ-ha-BK3"/>
+                            <constraint firstItem="4uD-T6-06p" firstAttribute="top" secondItem="gsd-dU-LPc" secondAttribute="bottom" id="zGr-6z-bqW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="data graph" id="mxt-Qz-8wT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncl-s5-sQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="1117"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6oj-yb-xda">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CC0-Ob-lnq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="HRU-r4-Kbf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="n0J-8P-kpw"/>
+                        <segue destination="FjA-H6-x06" kind="relationship" relationship="viewControllers" id="ocJ-eT-WSy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NuV-Fu-qYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="348"/>
         </scene>
     </scenes>
 </document>

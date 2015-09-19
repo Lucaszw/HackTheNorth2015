@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		454BD16289A8057643174D6D /* libPods-gesture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13AADCB1CB4D13D89CF4EE17 /* libPods-gesture.a */; };
+		D70869261BAD5EAC001456FA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70869241BAD5EAC001456FA /* FBSDKCoreKit.framework */; };
+		D70869271BAD5EAC001456FA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70869251BAD5EAC001456FA /* FBSDKLoginKit.framework */; };
+		D70869291BAD67E4001456FA /* BluetoothAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70869281BAD67E4001456FA /* BluetoothAPI.swift */; };
+		D708692B1BAD855A001456FA /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708692A1BAD855A001456FA /* GraphViewController.swift */; };
 		D79C10001BAD266300CA3095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C0FFF1BAD266300CA3095 /* AppDelegate.swift */; };
 		D79C10031BAD266300CA3095 /* gesture.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D79C10011BAD266300CA3095 /* gesture.xcdatamodeld */; };
 		D79C10051BAD266300CA3095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C10041BAD266300CA3095 /* ViewController.swift */; };
@@ -14,6 +19,9 @@
 		D79C100A1BAD266300CA3095 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79C10091BAD266300CA3095 /* Images.xcassets */; };
 		D79C100D1BAD266300CA3095 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79C100B1BAD266300CA3095 /* LaunchScreen.xib */; };
 		D79C10191BAD266300CA3095 /* gestureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C10181BAD266300CA3095 /* gestureTests.swift */; };
+		D7F0A0FD1BAD44390031F927 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F0A0FC1BAD44390031F927 /* MainViewController.swift */; };
+		D7F0A0FF1BAD45FF0031F927 /* ConnectionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F0A0FE1BAD45FF0031F927 /* ConnectionAPI.swift */; };
+		D7F0A1011BAD546D0031F927 /* PebbleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F0A1001BAD546D0031F927 /* PebbleHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13AADCB1CB4D13D89CF4EE17 /* libPods-gesture.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gesture.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		647BCD0B5FA0C980D46C139B /* Pods-gesture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gesture.release.xcconfig"; path = "Pods/Target Support Files/Pods-gesture/Pods-gesture.release.xcconfig"; sourceTree = "<group>"; };
+		792DB18C7900B55343AF9886 /* Pods-gesture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gesture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gesture/Pods-gesture.debug.xcconfig"; sourceTree = "<group>"; };
+		D70869241BAD5EAC001456FA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D70869251BAD5EAC001456FA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D70869281BAD67E4001456FA /* BluetoothAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothAPI.swift; sourceTree = "<group>"; };
+		D708692A1BAD855A001456FA /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		D7811FEE1BAD29AE00666A6E /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		D79C0FFA1BAD266300CA3095 /* gesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gesture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79C0FFE1BAD266300CA3095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D79C0FFF1BAD266300CA3095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +54,9 @@
 		D79C10121BAD266300CA3095 /* gestureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gestureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79C10171BAD266300CA3095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D79C10181BAD266300CA3095 /* gestureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gestureTests.swift; sourceTree = "<group>"; };
+		D7F0A0FC1BAD44390031F927 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D7F0A0FE1BAD45FF0031F927 /* ConnectionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionAPI.swift; sourceTree = "<group>"; };
+		D7F0A1001BAD546D0031F927 /* PebbleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454BD16289A8057643174D6D /* libPods-gesture.a in Frameworks */,
+				D70869261BAD5EAC001456FA /* FBSDKCoreKit.framework in Frameworks */,
+				D70869271BAD5EAC001456FA /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +80,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		083482DA165B38574F8F44F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				792DB18C7900B55343AF9886 /* Pods-gesture.debug.xcconfig */,
+				647BCD0B5FA0C980D46C139B /* Pods-gesture.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BDE3CBBBCB00C256E88CD97B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D70869241BAD5EAC001456FA /* FBSDKCoreKit.framework */,
+				D70869251BAD5EAC001456FA /* FBSDKLoginKit.framework */,
+				13AADCB1CB4D13D89CF4EE17 /* libPods-gesture.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D79C0FF11BAD266300CA3095 = {
 			isa = PBXGroup;
 			children = (
 				D79C0FFC1BAD266300CA3095 /* gesture */,
 				D79C10151BAD266300CA3095 /* gestureTests */,
 				D79C0FFB1BAD266300CA3095 /* Products */,
+				083482DA165B38574F8F44F2 /* Pods */,
+				BDE3CBBBCB00C256E88CD97B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,10 +125,16 @@
 				D79C0FFF1BAD266300CA3095 /* AppDelegate.swift */,
 				D79C10041BAD266300CA3095 /* ViewController.swift */,
 				D79C10061BAD266300CA3095 /* Main.storyboard */,
+				D7F0A0FC1BAD44390031F927 /* MainViewController.swift */,
+				D708692A1BAD855A001456FA /* GraphViewController.swift */,
 				D79C10091BAD266300CA3095 /* Images.xcassets */,
 				D79C100B1BAD266300CA3095 /* LaunchScreen.xib */,
 				D79C10011BAD266300CA3095 /* gesture.xcdatamodeld */,
 				D79C0FFD1BAD266300CA3095 /* Supporting Files */,
+				D7811FEE1BAD29AE00666A6E /* Bridge-Header.h */,
+				D7F0A1001BAD546D0031F927 /* PebbleHelper.swift */,
+				D7F0A0FE1BAD45FF0031F927 /* ConnectionAPI.swift */,
+				D70869281BAD67E4001456FA /* BluetoothAPI.swift */,
 			);
 			path = gesture;
 			sourceTree = "<group>";
@@ -122,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D79C101C1BAD266300CA3095 /* Build configuration list for PBXNativeTarget "gesture" */;
 			buildPhases = (
+				188A299B6E2E8C2D3A1054E3 /* Check Pods Manifest.lock */,
 				D79C0FF61BAD266300CA3095 /* Sources */,
 				D79C0FF71BAD266300CA3095 /* Frameworks */,
 				D79C0FF81BAD266300CA3095 /* Resources */,
+				C5635076CA1897B114CA37F3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,6 +215,7 @@
 				TargetAttributes = {
 					D79C0FF91BAD266300CA3095 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 9VG5LLE4FD;
 					};
 					D79C10111BAD266300CA3095 = {
 						CreatedOnToolsVersion = 6.4;
@@ -210,6 +262,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		188A299B6E2E8C2D3A1054E3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C5635076CA1897B114CA37F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gesture/Pods-gesture-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D79C0FF61BAD266300CA3095 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -217,7 +302,12 @@
 			files = (
 				D79C10051BAD266300CA3095 /* ViewController.swift in Sources */,
 				D79C10001BAD266300CA3095 /* AppDelegate.swift in Sources */,
+				D7F0A0FF1BAD45FF0031F927 /* ConnectionAPI.swift in Sources */,
 				D79C10031BAD266300CA3095 /* gesture.xcdatamodeld in Sources */,
+				D7F0A0FD1BAD44390031F927 /* MainViewController.swift in Sources */,
+				D708692B1BAD855A001456FA /* GraphViewController.swift in Sources */,
+				D70869291BAD67E4001456FA /* BluetoothAPI.swift in Sources */,
+				D7F0A1011BAD546D0031F927 /* PebbleHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,21 +434,41 @@
 		};
 		D79C101D1BAD266300CA3095 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 792DB18C7900B55343AF9886 /* Pods-gesture.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = gesture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "gesture/Bridge-Header.h";
 			};
 			name = Debug;
 		};
 		D79C101E1BAD266300CA3095 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 647BCD0B5FA0C980D46C139B /* Pods-gesture.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = gesture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "gesture/Bridge-Header.h";
 			};
 			name = Release;
 		};
@@ -415,6 +525,7 @@
 				D79C101E1BAD266300CA3095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D79C101F1BAD266300CA3095 /* Build configuration list for PBXNativeTarget "gestureTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +534,7 @@
 				D79C10211BAD266300CA3095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

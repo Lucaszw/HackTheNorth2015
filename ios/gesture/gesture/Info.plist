@@ -43,5 +43,22 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.getpebble.public</string>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1648355152108330</string>
+	<key>FacebookDisplayName</key>
+	<string>gesture</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1648355152108330</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
