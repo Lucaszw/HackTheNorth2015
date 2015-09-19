@@ -6,28 +6,31 @@
 
 #include <pebble.h>
 
-#define WORKER_TICKS 0
+ #define ACCEL_DATA 0
 
 static Window *s_main_window;
-static TextLayer *s_output_layer, *s_ticks_layer, *s_x_layer, *s_y_layer;
+static TextLayer *s_output_layer, *s_ticks_layer, *s_x_layer, *s_y_layer, *s_z_layer;
 
 static void worker_message_handler(uint16_t type, AppWorkerMessage *data) {
   // Updated the UI with info from worker
 
-
-  if (type == WORKER_TICKS) { 
+  if (type == ACCEL_DATA) { 
     // Read ticks from worker's packet
-    int x = data->data0;
-    int y = data->data1;
+    int16_t x = data->data0;
+    int16_t y = data->data1;
+    int16_t z = data->data2;
 
     // Show to user in TextLayer
-    static char s_buffer_x[32], s_buffer_y[32];
+    static char s_buffer_x[32], s_buffer_y[32], s_buffer_z[32];
 
     snprintf(s_buffer_x, sizeof(s_buffer_x), "x: %d ", x);
     text_layer_set_text(s_x_layer, s_buffer_x);
 
     snprintf(s_buffer_y, sizeof(s_buffer_y), "y: %d ", y);
     text_layer_set_text(s_y_layer, s_buffer_y);
+
+    snprintf(s_buffer_z, sizeof(s_buffer_z), "z: %d ", z);
+    text_layer_set_text(s_z_layer, s_buffer_z);
 
   }
 
@@ -90,17 +93,20 @@ static void main_window_load(Window *window) {
   layer_add_child(window_layer, text_layer_get_layer(s_ticks_layer));
 
   // Create TextLayer for custom font
-  s_x_layer = text_layer_create(GRect(0, 75, 144, 85));
-  char* text = malloc(sizeof("Accelerometer Data"));
-  strncpy(text, "Accelerometer Data", sizeof("Accelerometer Data"));
+  s_x_layer = text_layer_create(GRect(0, 55, 144, 85));
+  char* text = malloc(sizeof("X:"));
+  strncpy(text, "X:", sizeof("X:"));
   make_layer(window_layer, s_x_layer, text);
 
-  s_y_layer = text_layer_create(GRect(0, 105, 144, 85));
-  char* text2 = malloc(sizeof("Accelerometer Data"));
-  strncpy(text2, "Accelerometer Data", sizeof("Accelerometer Data"));
+  s_y_layer = text_layer_create(GRect(0, 85, 144, 85));
+  char* text2 = malloc(sizeof("Y:"));
+  strncpy(text2, "Y:", sizeof("Y:"));
   make_layer(window_layer, s_y_layer, text2);
 
-
+    s_z_layer = text_layer_create(GRect(0, 115, 144, 85));
+  char* text3 = malloc(sizeof("Z:"));
+  strncpy(text3, "Z:", sizeof("Z:"));
+  make_layer(window_layer, s_z_layer, text3);
 
 }
 
