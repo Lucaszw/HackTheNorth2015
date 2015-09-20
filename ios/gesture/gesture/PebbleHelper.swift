@@ -52,7 +52,6 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate {
         if (self.watch != nil) {
             println("Pebble connected: \(self.watch!.name)")
         }
-        
     }
     
     func pebbleCentral(central: PBPebbleCentral!, watchDidConnect watch: PBWatch!, isNew: Bool) {

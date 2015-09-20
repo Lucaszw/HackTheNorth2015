@@ -18,10 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PBPebbleCentralDelegate {
         didSet {
             if let watch = watch {
                 watch.appMessagesLaunch({ (_, error) in
-                    if error != nil {
+                    if error == nil {
                         println("App launched!")
-                        ConnectionAPI.status = "app launched?"
+//                        ConnectionAPI.status = "app launched?"
                     } else {
+                        println(error)
                         println("error")
                     }
                 }
