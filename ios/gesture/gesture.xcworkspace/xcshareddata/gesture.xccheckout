@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CEF700C4-B0EB-4251-B26B-E5E1E68DD12C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>gesture</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7414476E21E1815B466FC7C72FE0FCFDABB6483E</key>
+		<string>https://github.com/Lucaszw/HackTheNorth2015.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/gesture/gesture.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7414476E21E1815B466FC7C72FE0FCFDABB6483E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Lucaszw/HackTheNorth2015.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7414476E21E1815B466FC7C72FE0FCFDABB6483E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7414476E21E1815B466FC7C72FE0FCFDABB6483E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HackTheNorth2015</string>
+		</dict>
+	</array>
+</dict>
+</plist>
