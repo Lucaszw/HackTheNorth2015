@@ -1,13 +1,73 @@
-/*
- * src/worker_test.c
- * Creates a Window and two TextLayers to display instructions and feedback 
- * from the background worker. 
- */
 #include <pebble.h>
+
 #define ACCEL_DATA 0
 
 static Window *s_main_window;
-static TextLayer *s_output_layer, *s_ticks_layer, *s_x_layer, *s_y_layer, *s_z_layer;
+static TextLayer *s_output_layer, *s_ticks_layer, *s_x_layer, *s_y_layer, *s_z_layer;  
+  
+enum APP_MESSAGE_KEYS {
+  GREETING = 0,
+  TITLE,
+};
+
+void update_text(uint16_t length, char *title) {
+//   free(s_text);
+//   s_text = malloc(length);
+//   strncpy(s_text, title, length);
+//   text_layer_set_text(s_text_layer, s_text);
+}
+
+void send_message(char *message) {
+  DictionaryIterator *iter;
+
+  app_message_outbox_begin(&iter);
+  dict_write_cstring(iter, GREETING, message);
+
+  dict_write_end(iter);
+  app_message_outbox_send();
+}
+
+void in_dropped_handler(AppMessageResult reason, void *context) {
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "Incoming message dropped: %d", reason);
+}
+
+void in_received_handler(DictionaryIterator *received, void *context) {
+  Tuple *tuple;
+  
+  tuple = dict_find(received, TITLE);
+  if(tuple) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "Received message: %s", tuple->value->cstring);
+    //update_text(tuple->length, tuple->value->cstring);
+  }
+}
+
+void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, void *context) {
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "Outgoing message failed: %d", reason);
+  app_message_outbox_send();
+}
+
+void out_sent_handler(DictionaryIterator *sent, void *context) {
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "Message sent successfully");
+}
+
+void app_message_init(void) {
+  app_message_register_inbox_dropped(in_dropped_handler);
+  app_message_register_inbox_received(in_received_handler);
+  app_message_register_outbox_failed(out_failed_handler);
+  app_message_register_outbox_sent(out_sent_handler);
+
+  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+
+  send_message("hello");
+}
+
+void app_message_deinit(void) {
+  app_message_deregister_callbacks();
+}
+
+
+
+// new stuff
 
 static void worker_message_handler(uint16_t type, AppWorkerMessage *data) {
   // Updated the UI with info from worker
@@ -24,6 +84,13 @@ static void worker_message_handler(uint16_t type, AppWorkerMessage *data) {
     text_layer_set_text(s_y_layer, s_buffer_y);
     snprintf(s_buffer_z, sizeof(s_buffer_z), "z: %d ", z);
     text_layer_set_text(s_z_layer, s_buffer_z);
+    
+    static char s_buffer_data[20];
+      
+    snprintf(s_buffer_data, sizeof(s_buffer_x), "%d,%d,%d", x,y,z);
+    
+    send_message(s_buffer_data);
+    
   }
 }
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
@@ -94,6 +161,9 @@ static void main_window_unload(Window *window) {
   text_layer_destroy(s_ticks_layer);
 }
 static void init(void) {
+  
+  app_message_init();
+  
   // Setup main Window
   s_main_window = window_create();
   window_set_click_config_provider(s_main_window, click_config_provider);
@@ -110,9 +180,21 @@ static void deinit(void) {
   window_destroy(s_main_window);
   // No more worker updates
   app_worker_message_unsubscribe();
+  
+  //old 
+  
+  app_message_deinit();
+//   free(s_text);
+//   text_layer_destroy(s_text_layer);
+//   window_destroy(s_window);
+  
 }
+
 int main(void) {
   init();
   app_event_loop();
   deinit();
 }
+
+
+
