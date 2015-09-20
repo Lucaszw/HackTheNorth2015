@@ -89,6 +89,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
                     
                     //display the deets of the person
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    
                     globalHandshakeUserId = cloudUserId
 //                    fbLinkButton.superview!.bringSubviewToFront(fbLinkButton)
                 } else {
