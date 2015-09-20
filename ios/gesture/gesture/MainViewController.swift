@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelperDelegate {
+class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelperDelegate, PBDataLoggingServiceDelegate {
     
     @IBOutlet var statusLabel: UILabel!;
     
@@ -37,14 +37,18 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
         pebbleHelper.UUID = "dde5b4f3-de18-42b0-8d10-6a635a31b7bd"
         
         // device data
-        pebbleHelper.printInfo()
+        //pebbleHelper.printInfo()
         
 //        while(true) {
             // data loop
 //            pebbleHelper.
             
 //        }
+        
+        PBPebbleCentral.defaultCentral().dataLoggingService.delegate = self;
     
+        
+
         
     }
     
@@ -53,7 +57,24 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
     func pebbleHelper(pebbleHelper: PebbleHelper, receivedMessage: Dictionary<NSObject, AnyObject>) {
         println(receivedMessage)
         
+    }
+    
+    func dataLoggingService(service: PBDataLoggingService!, hasByteArrays bytes: UnsafePointer<UInt8>, numberOfItems: UInt16, forDataLoggingSession session: PBDataLoggingSessionMetadata!) -> Bool {
         
+//        for i in 0...numberOfItems {
+//            println("entry \(bytes)")
+//            
+//        }
+        
+        println("data: \(bytes)")
+        
+        return true;
+    }
+    
+    
+    func dataLoggingService(service: PBDataLoggingService!, sessionDidFinish session: PBDataLoggingSessionMetadata!) {
+        
+        //println("finished data logging");
         
     }
     
