@@ -36,7 +36,7 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate {
             PBPebbleCentral.defaultCentral().appUUID = NSData(bytes: &myAppUUIDbytes, length: 16)
             if (self.watch != nil) {
                 self.watch?.appMessagesAddReceiveUpdateHandler({ (watch, msgDictionary) -> Bool in
-                    println("Message received")
+                    print("Message received")
                     self.delegate?.pebbleHelper(self, receivedMessage: msgDictionary)
                     return true
                 })
@@ -50,17 +50,17 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate {
         PBPebbleCentral.defaultCentral().delegate = self
         self.watch = PBPebbleCentral.defaultCentral().lastConnectedWatch()
         if (self.watch != nil) {
-            println("Pebble connected: \(self.watch!.name)")
+            print("Pebble connected: \(self.watch!.name)")
         }
         
     }
     
     func pebbleCentral(central: PBPebbleCentral!, watchDidConnect watch: PBWatch!, isNew: Bool) {
-        println("Pebble connected: \(watch.name)")
+        print("Pebble connected: \(watch.name)")
     }
     
     func pebbleCentral(central: PBPebbleCentral!, watchDidDisconnect watch: PBWatch!) {
-        println("Pebble disconnected: \(watch.name)")
+        print("Pebble disconnected: \(watch.name)")
         if (self.watch == watch) {
             self.watch = nil
         }
@@ -86,15 +86,15 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate {
     
     func printInfo() {
         if (self.watch != nil) {
-            println("Pebble name: \(self.watch!.name)")
-            println("Pebble serial number: \(self.watch!.serialNumber)")
+            print("Pebble name: \(self.watch!.name)")
+            print("Pebble serial number: \(self.watch!.serialNumber)")
             self.watch?.getVersionInfo({ (watch, versionInfo) -> Void in
-                println("Pebble firmware os version: \(versionInfo.runningFirmwareMetadata.version.os)")
-                println("Pebble firmware major version: \(versionInfo.runningFirmwareMetadata.version.major)")
-                println("Pebble firmware minor version: \(versionInfo.runningFirmwareMetadata.version.minor)")
-                println("Pebble firmware suffix version: \(versionInfo.runningFirmwareMetadata.version.suffix)")
+                print("Pebble firmware os version: \(versionInfo.runningFirmwareMetadata.version.os)")
+                print("Pebble firmware major version: \(versionInfo.runningFirmwareMetadata.version.major)")
+                print("Pebble firmware minor version: \(versionInfo.runningFirmwareMetadata.version.minor)")
+                print("Pebble firmware suffix version: \(versionInfo.runningFirmwareMetadata.version.suffix)")
                 }, onTimeout: { (watch) -> Void in
-                    println("Timed out trying to get version info from Pebble.")
+                    print("Timed out trying to get version info from Pebble.")
             })
         }
     }

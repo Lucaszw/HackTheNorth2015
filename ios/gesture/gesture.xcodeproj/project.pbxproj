@@ -10,7 +10,7 @@
 		454BD16289A8057643174D6D /* libPods-gesture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13AADCB1CB4D13D89CF4EE17 /* libPods-gesture.a */; };
 		D70869261BAD5EAC001456FA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70869241BAD5EAC001456FA /* FBSDKCoreKit.framework */; };
 		D70869271BAD5EAC001456FA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70869251BAD5EAC001456FA /* FBSDKLoginKit.framework */; };
-		D70869291BAD67E4001456FA /* BluetoothAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70869281BAD67E4001456FA /* BluetoothAPI.swift */; };
+		D70869291BAD67E4001456FA /* BlePeripheralModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70869281BAD67E4001456FA /* BlePeripheralModule.swift */; };
 		D708692B1BAD855A001456FA /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708692A1BAD855A001456FA /* GraphViewController.swift */; };
 		D79C10001BAD266300CA3095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C0FFF1BAD266300CA3095 /* AppDelegate.swift */; };
 		D79C10031BAD266300CA3095 /* gesture.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D79C10011BAD266300CA3095 /* gesture.xcdatamodeld */; };
@@ -40,7 +40,7 @@
 		792DB18C7900B55343AF9886 /* Pods-gesture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gesture.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gesture/Pods-gesture.debug.xcconfig"; sourceTree = "<group>"; };
 		D70869241BAD5EAC001456FA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D70869251BAD5EAC001456FA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		D70869281BAD67E4001456FA /* BluetoothAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothAPI.swift; sourceTree = "<group>"; };
+		D70869281BAD67E4001456FA /* BlePeripheralModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlePeripheralModule.swift; sourceTree = "<group>"; };
 		D708692A1BAD855A001456FA /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		D7811FEE1BAD29AE00666A6E /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		D79C0FFA1BAD266300CA3095 /* gesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gesture.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,7 +134,7 @@
 				D7811FEE1BAD29AE00666A6E /* Bridge-Header.h */,
 				D7F0A1001BAD546D0031F927 /* PebbleHelper.swift */,
 				D7F0A0FE1BAD45FF0031F927 /* ConnectionAPI.swift */,
-				D70869281BAD67E4001456FA /* BluetoothAPI.swift */,
+				D70869281BAD67E4001456FA /* BlePeripheralModule.swift */,
 			);
 			path = gesture;
 			sourceTree = "<group>";
@@ -210,12 +210,14 @@
 		D79C0FF21BAD266300CA3095 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = seapig;
 				TargetAttributes = {
 					D79C0FF91BAD266300CA3095 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9VG5LLE4FD;
+						DevelopmentTeam = GN438JEAF5;
 					};
 					D79C10111BAD266300CA3095 = {
 						CreatedOnToolsVersion = 6.4;
@@ -306,7 +308,7 @@
 				D79C10031BAD266300CA3095 /* gesture.xcdatamodeld in Sources */,
 				D7F0A0FD1BAD44390031F927 /* MainViewController.swift in Sources */,
 				D708692B1BAD855A001456FA /* GraphViewController.swift in Sources */,
-				D70869291BAD67E4001456FA /* BluetoothAPI.swift in Sources */,
+				D70869291BAD67E4001456FA /* BlePeripheralModule.swift in Sources */,
 				D7F0A1011BAD546D0031F927 /* PebbleHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -424,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -32,7 +32,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
         }
         
         
-        var pebbleHelper = PebbleHelper.instance
+        let pebbleHelper = PebbleHelper.instance
         pebbleHelper.delegate = self
         pebbleHelper.UUID = "dde5b4f3-de18-42b0-8d10-6a635a31b7bd"
         
@@ -51,7 +51,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
     // pebble delegate methods
     
     func pebbleHelper(pebbleHelper: PebbleHelper, receivedMessage: Dictionary<NSObject, AnyObject>) {
-        println(receivedMessage)
+        print(receivedMessage)
         
         
         
@@ -62,7 +62,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
     
-        println("User Logged In")
+        print("User Logged In")
         
         if ((error) != nil) {
             // Process error
@@ -77,7 +77,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate, PebbleHelp
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-    println("User Logged Out")
+    print("User Logged Out")
     
         // stops user from navigating away after logging out
         //self.navigationController?.setNavigationBarHidden(true, animated: true);
