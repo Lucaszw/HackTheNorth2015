@@ -4,6 +4,7 @@
 target 'gesture' do
         pod 'PebbleKit'
 	pod 'CorePlot'
+	pod 'Firebase', '>= 2.3.3'
 end
 
 target 'gestureTests' do
