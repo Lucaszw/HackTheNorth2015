@@ -1,13 +1,16 @@
 PODS:
   - CorePlot (1.6)
+  - Firebase (2.3.3)
   - PebbleKit (2.4)
 
 DEPENDENCIES:
   - CorePlot
+  - Firebase (>= 2.3.3)
   - PebbleKit
 
 SPEC CHECKSUMS:
   CorePlot: 820901f6c147f2d84549ffa1f0902869f980d74d
+  Firebase: 2db60272f68ce40c7d47e5ae6eddc16977c65d4c
   PebbleKit: e8650801927bd7272da83c8a21fb94d2af24465b
 
 COCOAPODS: 0.38.2

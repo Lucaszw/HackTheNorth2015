@@ -11,35 +11,38 @@
 //
 //class GraphViewController: UIViewController {
 //    
+//    @IBOutlet 
+//    
 //    
 //    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        
+//        
 //        // create graph
 //        var graph = CPTXYGraph(frame: CGRectZero)
-//        graph.title = "Hello Graph"
-//        graph.paddingLeft = 0
-//        graph.paddingTop = 0
-//        graph.paddingRight = 0
-//        graph.paddingBottom = 0
-//        // hide the axes
+//        
+//        graph.paddingLeft = 5
+//        graph.paddingTop = 5
+//        graph.paddingRight = 5
+//        graph.paddingBottom = 5
+//        // Axes
 //        var axes = graph.axisSet as! CPTXYAxisSet
 //        var lineStyle = CPTMutableLineStyle()
-//        lineStyle.lineWidth = 0
+//        lineStyle.lineWidth = 2
 //        axes.xAxis.axisLineStyle = lineStyle
 //        axes.yAxis.axisLineStyle = lineStyle
 //        
-//        // add a pie plot
-//        var pie = CPTPieChart()
-//        pie.dataSource = self
-//        pie.pieRadius = (self.view.frame.size.width * 0.9)/2
-//        graph.addPlot(pie)
-//        
 //        self.graphView.hostedGraph = graph
-//
-//
 //    }
+//    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//        
+//    
+//
 //    
 //    
 //    

@@ -36,7 +36,7 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate {
             PBPebbleCentral.defaultCentral().appUUID = NSData(bytes: &myAppUUIDbytes, length: 16)
             if (self.watch != nil) {
                 self.watch?.appMessagesAddReceiveUpdateHandler({ (watch, msgDictionary) -> Bool in
-                    println("Message received")
+                    //println("Message received")
                     self.delegate?.pebbleHelper(self, receivedMessage: msgDictionary)
                     return true
                 })
